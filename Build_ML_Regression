@@ -1,0 +1,47 @@
+
+install.packages("caret")
+library(caret)
+
+
+## Stat function
+model1 <- lm(mpg ~ hp + wt,
+             data = mtcars)
+model1
+
+## caret train
+
+model2 <- train(mpg ~ hp+wt,
+      data =mtcars,
+      method = "lm")
+model2
+model2$finalModel
+
+## prepare data
+
+set.seed(42)
+n <- nrow(mtcars)
+id <- sample(1:n ,size = n*0.8)
+train_data = mtcars[id , ]
+test_data = mtcars[-id, ]
+
+nrow(train_data) ; nrow(test_data)
+
+## Train model
+
+model <- train(mpg ~ hp+wt,
+               data = train_data,
+               method = "lm")
+
+model$finalModel
+ 
+### predict / scoreing
+
+p_mpg <- predict(model , newdata = test_data)
+ 
+## Evaluate model
+
+error <- p_mpg - test_data$mpg
+test_rmse <- sqrt(mean(error**2))
+
+test_rmse
+model
