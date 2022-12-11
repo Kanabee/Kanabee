@@ -5,6 +5,7 @@
 - I’m interested in Machine Learning and Programming
 - I’m currently learning R Python SQL and another skill with DataRockie by P'Toy
 - I don’t have real-life work-experience about Machine Learning , I’m ready to learn new things from all of you.
+- My Resume >> Repository 
 
 
 
